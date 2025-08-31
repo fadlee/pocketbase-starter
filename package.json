@@ -1,7 +1,7 @@
 {
-  "name": "pocketpages-starter-minimal",
+  "name": "pocketbase-starter",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.1",
   "pockethost": {
     "instanceId": "minimal"
   },
@@ -11,12 +11,12 @@
   ],
   "description": "A minimal starter project for PocketPages",
   "author": {
-    "name": "Ben Allfree",
-    "github": "benallfree"
+    "name": "Fadlee",
+    "github": "fadlee"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/benallfree/pocketpages/tree/main/packages/starters/minimal"
+    "url": "https://github.com/fadlee/pocketbase-starter"
   },
   "keywords": [
     "pocketpages",
@@ -25,6 +25,12 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "pocketpages": "^0.18.1"
+    "@fadlee/pocketbase-bin": "^1.0.1",
+    "dayjs": "^1.11.18",
+    "pocketpages": "^0.18.2"
+  },
+  "scripts": {
+    "dev": "pocketbase serve --dev",
+    "start": "pocketbase serve"
   }
 }
