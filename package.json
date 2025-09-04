@@ -25,12 +25,21 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@fadlee/pocketbase-bin": "^1.0.1",
     "dayjs": "^1.11.18",
+    "pocketbase": "^0.26.2",
     "pocketpages": "^0.18.2"
   },
   "scripts": {
-    "dev": "pocketbase serve --dev",
-    "start": "pocketbase serve"
+    "dev": "bun run typegen && concurrently \"bun run dev:server\" \"bun run dev:watch\" --names \"server,watch\" --prefix-colors \"blue,green\"",
+    "dev:server": "pocketbase serve --dev",
+    "dev:watch": "chokidar 'pb_migrations/**/*' -c 'bun run typegen' --ignore '**/.DS_Store' --ignore '**/.*'",
+    "start": "pocketbase serve",
+    "typegen": "pocketbase-typegen --db ./pb_data/data.db --out src/types.ts"
+  },
+  "devDependencies": {
+    "@fadlee/pocketbase-bin": "^1.0.1",
+    "pocketbase-typegen": "^1.3.1",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^8.2.2"
   }
 }
